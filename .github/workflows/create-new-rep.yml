@@ -1,0 +1,20 @@
+name: Create-New-Project
+
+on:
+  workflow_dispatch:
+
+jobs:
+  create-project:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Copy template files
+        run: |
+          git clone https://github.com/<username>/<template-repo>.git .
+          rm -rf .git
+          git init
+          git add .
+          git commit -m "Initial commit"
+          git remote add origin https://github.com/<username>/<new-repo>.git
+          git push -u origin master
+
