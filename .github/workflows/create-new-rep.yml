@@ -17,4 +17,9 @@ jobs:
           git commit -m "Initial commit"
           git remote add origin https://github.com/<username>/<new-repo>.git
           git push -u origin master
-
+      - name: Set up Python
+        uses: actions/setup-python@v2
+      - name: Run License script
+        run: python license.py
+      - name: Run contributors script
+        run: python contributors.py
